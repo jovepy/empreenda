@@ -1,5 +1,5 @@
-Olá, essa é uma mensagem automática. 
-Tentarei agilizar as coisas para você. Escolha uma das opções abaixo digitando o número da opção:
+Olá, essa é uma **mensagem automática**. 
+Tentarei agilizar as coisas para você. Escolha uma das opções abaixo digitando o **número da opção**:
 	1 - Consultar preços
 	2 - Agendamento
 	3 - Preciso conversar com uma pessoa

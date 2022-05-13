@@ -20,6 +20,7 @@ OBS: o símbolo *** significa que ainda há a inclusão de novos scripts/compone
     4. Dashboard para Busines Inteligence
 - CONFIGS: configurações dos módulos e local
 - TABELAS: informações do empreendedor, simula um banco de dados, porém com o objetivo de ser simples, por isso tabelas em excel.
+- DEPENDÊNCIAS: programas e bibliotecas necessários para o funcionamento
 
 ## Composição das PASTAS
 ### BASICOS
@@ -39,4 +40,7 @@ OBS: o símbolo *** significa que ainda há a inclusão de novos scripts/compone
     4. MSG_SAUDACAO.TXT: mensagem exibida para início do diálogo
     5. ***
 
+### DEPENDÊNCIAS
+    1. Chromedriver.exe: utilizado para webscraping
+    2. Bibliotecas.txt: bibliotecas necessárias de serem instaladas
 # Em progresso...

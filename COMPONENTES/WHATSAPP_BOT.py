@@ -5,8 +5,23 @@ Created on Wed Apr 27 12:18:42 2022
 @author: rodrigo.jove
 """
 
-from config_empreendedor import *
+def navegar_chrome(RAIZ):
+    global driver    
+    chrome_options =webdriver.ChromeOptions()
+    chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+    prefs = {"download.default_directory" : '{}\Programa para Empreendedores\Arquivos\Downloads'.format(RAIZ)} #LOCAL ONDE SEMPRE SERÁ BAIXADO OS ARQUIVOS, SEMPRE SERÃO APAGADOS APÓS O USO, SÓ É PARA TER UM ARQUIVO NESSA PASTA
+    chrome_options.add_experimental_option("prefs",prefs)
+    chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    chrome_options.add_experimental_option('useAutomationExtension', False)
+    driver =  webdriver.Chrome('{}/Empreenda/Dependencias/chromedriver.exe'.format(RAIZ),options=chrome_options) #service=Service(ChromeDriverManager().install())
+    driver.set_window_position(0,0)
+    driver.set_window_size(1600, 800)
+    return(driver)
 
+def retorna_back(driver):
+    page_content= driver.page_source 
+    back = bs(page_content, 'html.parser')
+    return(back)
 
 
 def inicio_contatos():
@@ -21,6 +36,12 @@ def muda_de_contato():
     
 
 def busca_tipo_contato():
+    """
+    Buscará se o contato é uma único ou um grupo.
+    Essa aplicação não funciona o atendimento em grupos
+    
+    return(str)
+    """
     nome = driver.find_element(by=By.XPATH, value='//*[@id="main"]/header/div[2]/div[1]/div/span') #encontra o nome 
     nome.click() #  
     site = retorna_back(driver)
@@ -54,6 +75,7 @@ def cria_dado_estruturado():
         a hora e data q foi enviado
         conteúdo da mensagem
         
+        return(dict(key:df))
     """
     site = retorna_back(driver)
     sleep(3)
@@ -82,12 +104,13 @@ def cria_dado_estruturado():
     return(dados_estruturados)
 
 
-
-driver = navegar_chrome()
-driver.get('https://web.whatsapp.com/')
-pyautogui.alert('Clique aqui após escanear','Aviso')
-#back = retorna_back(driver)
-def rotina_principal():
+def ROTINA_ATENDIMENTO():
+    """
+    Script principal onde a lógica principal está. O produto final se encontra aqui
+    """
+    driver = navegar_chrome()
+    driver.get('https://web.whatsapp.com/')
+    pyautogui.alert('Clique aqui após escanear','Aviso')
     inicio_contatos()
     sleep( 1 )
     hoje = date.today().strftime('%d/%m/%Y')
@@ -99,7 +122,7 @@ def rotina_principal():
             if telefone in contatos: #deixamos grupos de fora
             
                 if dados_estruturados['Historico']['Emissor'].iloc[-1] != PROPRIETARIO_WPP: #apenas pessoas que ainda nao foram respondidas devem ser respondidas
-                    enviar_mensagem(MSG_SAUDACAO)
+                    #enviar_mensagem(MSG_SAUDACAO)
                     atendimento = True
                     n=0
                     
@@ -127,9 +150,8 @@ def rotina_principal():
                                 print('encaminha para o atendimento humano')
                             else:
                                 print('Mantenha-se apenas às opções disponíveis, digite um número possível')
-                                enviar_mensagem(MSG_SAUDACAO)
+                                #enviar_mensagem(MSG_SAUDACAO)
                                 
-                            print('respondido')
                             n=0 #zera a contagem do atendimento, pois respondeu e pode querer continuar
                 
                 else: #se eu dei a última mensagem, o atendimento foi encerrado ou a pessoa ainda não me respondeu
@@ -150,16 +172,3 @@ def rotina_principal():
         
         driver.delete_all_cookies()
     
-
-    """
-    muda_de_contato()
-    sleep( 1 )
-    
-    enviar_mensagem(texto=)
-    SE A O ULTIMO A RESPONDER FOI O CLIENTE:
-        COMECE O ATENDIMENTO
-    SE NAO PASSE
-    
-    """
-    
-    #loop enquanto existir cliente para ser atendido 
