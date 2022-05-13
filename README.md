@@ -13,8 +13,9 @@ Você poderá contribuir utilizando o [repositório oficial](https://github.com/
 ### Guia de instalação
 1. Instale o [Python 3.9.7](https://www.python.org/ftp/python/3.9.7/python-3.9.7-amd64.exe) em C:/
 2. Clone o [repositório oficial](https://github.com/jovepy/empreenda) na raiz C:/
-```markdown
 3. Em C:/empreenda execute o comando no cmd **pip install -r bibliotecas.txt**
+```markdown
+
 ```
 
 [Link](url) and ![Image](src)
