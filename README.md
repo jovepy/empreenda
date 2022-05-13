@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+## Seja bem-vindo ao projeto Empreenda
 
-You can use the [editor on GitHub](https://github.com/jovepy/empreenda/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+Nesse projeto você encontrará uma microestrutura de serviços que auxiliará o empreendedor em três esferas:
+1. Atendimento ao público
+2. Gerenciamento de estoques/Agenda
+3. Precificação de produtos/Serviços
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+A proposta desse projeto é auxiliar qualquer pessoa que busque empreender e que possua baixo capital inicial. Proponho-me e vos convido a criar uma ferramenta que agregue valor à sociedade.
 
-### Markdown
+Você poderá contribuir utilizando o [repositório oficial](https://github.com/jovepy/empreenda) do projeto 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+### Guai de instalação
 ```markdown
-Syntax highlighted code block
-
-# Header 111
-## Header 22
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+1. Instale o [Python 3.9.7](https://www.python.org/ftp/python/3.9.7/python-3.9.7-amd64.exe) em C:/
+2. Clone o [repositório oficial](https://github.com/jovepy/empreenda) na raiz C:/
+3. Em C:/empreenda execute o comando no cmd **pip install -r bibliotecas.txt**
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jovepy/empreenda/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+[Link](url) and ![Image](src)
