@@ -24,8 +24,7 @@ OBS: o símbolo *** significa que ainda há a inclusão de novos scripts/compone
 
 ## Composição das PASTAS
 ### BASICOS
-    1. WEBSCRAPING.PY: script para raspagem de páginas web
-    2. *** 
+    1. *** 
 
 ### COMPONENTES
     1. WHATSAPP_BOT.PY: utilizado para o atendimento via Whatsapp. O único propósito desse script é receber, estrutura e enviar informações
@@ -41,6 +40,5 @@ OBS: o símbolo *** significa que ainda há a inclusão de novos scripts/compone
     5. ***
 
 ### DEPENDÊNCIAS
-    1. Chromedriver.exe: utilizado para webscraping
-    2. Bibliotecas.txt: bibliotecas necessárias de serem instaladas
+    1. Bibliotecas.txt: bibliotecas necessárias de serem instaladas
 # Em progresso...

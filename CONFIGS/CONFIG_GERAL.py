@@ -6,7 +6,7 @@ Created on Sat Apr 23 10:00:33 2022
 """
 
 from RUN_JOVEPY import *
-
+RAIZ
 #Raspagens
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys

@@ -5,15 +5,17 @@ Created on Wed Apr 27 12:18:42 2022
 @author: rodrigo.jove
 """
 
-def navegar_chrome(RAIZ):
+from CONFIG_GERAL import *
+
+def navegar_chrome():
     global driver    
     chrome_options =webdriver.ChromeOptions()
     chrome_options.add_argument('--disable-blink-features=AutomationControlled')
-    prefs = {"download.default_directory" : '{}\Programa para Empreendedores\Arquivos\Downloads'.format(RAIZ)} #LOCAL ONDE SEMPRE SERÁ BAIXADO OS ARQUIVOS, SEMPRE SERÃO APAGADOS APÓS O USO, SÓ É PARA TER UM ARQUIVO NESSA PASTA
+    prefs = {"download.default_directory" : '.\empreenda\ARQUIVOS\DOWNLOADS'} #LOCAL ONDE SEMPRE SERÁ BAIXADO OS ARQUIVOS, SEMPRE SERÃO APAGADOS APÓS O USO, SÓ É PARA TER UM ARQUIVO NESSA PASTA
     chrome_options.add_experimental_option("prefs",prefs)
     chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
     chrome_options.add_experimental_option('useAutomationExtension', False)
-    driver =  webdriver.Chrome('{}/Empreenda/Dependencias/chromedriver.exe'.format(RAIZ),options=chrome_options) #service=Service(ChromeDriverManager().install())
+    driver =  webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=chrome_options)
     driver.set_window_position(0,0)
     driver.set_window_size(1600, 800)
     return(driver)
