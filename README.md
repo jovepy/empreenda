@@ -30,13 +30,13 @@ OBS: o símbolo *** significa que ainda há a inclusão de novos scripts/compone
     1. WHATSAPP_BOT.PY: utilizado para o atendimento via Whatsapp. O único propósito desse script é receber, estrutura e enviar informações
     2. GERENCIADOR.PY: utilizado para gerenciar o resultado oriundo do atendimento, podendo ser uma agenda de horários ou estoque.
     3. PREFICACAO.PY: utiliza microeconomia e os dados obtidos com o atendimento e o estoque para precificar o produto e gerar indicadores úteis.
-    4.DASHBOARD.PY: exibe as informações obtidas na precificação.
+    4. DASHBOARD.PY: exibe as informações obtidas na precificação.
 
 ### CONFIGS
     1. CONFIG_GERAL.PY: configurações gerais do programa e local
     2. CONFIG_MENU.PY: configurações dos menus do atendiemnto no WPP
     3. CONFIG_WPP.PY: configurações do whatsapp
     4. MSG_SAUDACAO.TXT: mensagem exibida para início do diálogo
-    5.***
+    5. ***
 
 # Em progresso...
