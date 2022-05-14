@@ -6,7 +6,7 @@ Created on Sat Apr 23 10:00:33 2022
 """
 
 from RUN_JOVEPY import *
-RAIZ
+
 #Raspagens
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -41,7 +41,6 @@ import spacy
 nlp = spacy.load('pt_core_news_sm')    
 
 from CONFIG_MENU import *
-from CONFIG_WPP import *
 
 
 path.insert(1, r"{}/COMPONENTES".format(RAIZ)) 

@@ -7,6 +7,15 @@ Created on Wed Apr 27 12:18:42 2022
 
 from CONFIG_GERAL import *
 
+contatos= []
+grupos = []
+EM_ATENDIMENTO = []
+
+PROPRIETARIO_WPP = 'Rodrigo Jovê'
+
+with open ('../CONFIGS/MSG_SAUDACAO.txt','r',encoding='utf8') as f:
+    MSG_SAUDACAO = f.read()
+    
 def navegar_chrome():
     global driver    
     chrome_options =webdriver.ChromeOptions()
