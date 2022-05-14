@@ -43,5 +43,5 @@ nlp = spacy.load('pt_core_news_sm')
 from CONFIG_MENU import *
 
 
-path.insert(1, r"{}/COMPONENTES".format(RAIZ)) 
+path.insert(1, r"../COMPONENTES") 
 from WHATSAPP_BOT import *

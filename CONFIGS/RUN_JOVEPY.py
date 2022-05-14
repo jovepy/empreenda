@@ -14,7 +14,4 @@ Agregue valor à sociedade.
 """
 
 
-from os import getcwd
-
-RAIZ = '/'.join(getcwd().replace('\\','/').split('/')[:-1])
 from CONFIG_GERAL import *
