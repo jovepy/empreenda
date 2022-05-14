@@ -35,9 +35,8 @@ OBS: o símbolo *** significa que ainda há a inclusão de novos scripts/compone
 ### CONFIGS
     1. CONFIG_GERAL.PY: configurações gerais do programa e local
     2. CONFIG_MENU.PY: configurações dos menus do atendiemnto no WPP
-    3. CONFIG_WPP.PY: configurações do whatsapp
-    4. MSG_SAUDACAO.TXT: mensagem exibida para início do diálogo
-    5. ***
+    3. MSG_SAUDACAO.TXT: mensagem exibida para início do diálogo
+    4. ***
 
 ### DEPENDÊNCIAS
     1. Bibliotecas.txt: bibliotecas necessárias de serem instaladas
