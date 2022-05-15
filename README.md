@@ -11,6 +11,7 @@ Você poderá contribuir utilizando o [repositório oficial](https://github.com/
 
 OBS: o símbolo *** significa que ainda há a inclusão de novos scripts/componentes à pasta
 # Estrutura do Projeto
+SCRUM do projeto: [ESCOPO DE PRODUÇÃO](https://miro.com/app/board/uXjVO60CGLc=/?share_link_id=474544749315)
 ## PASTAS
 - BASICOS: funções úteis e gerais a todo o projeto.
 - COMPONENTES: módulos com utilidades específicas. No caso as três esferas do projeto
