@@ -36,8 +36,6 @@ from datetime import date, timedelta
 import pandas as pd
 import numpy as np
 import spacy
-
-
 nlp = spacy.load('pt_core_news_sm')    
 
 from CONFIG_MENU import *
