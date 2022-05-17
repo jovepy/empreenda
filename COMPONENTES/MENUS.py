@@ -13,8 +13,9 @@ def RETORNA_PRODUTOS():
 
 
 def agenda_dias_disponiveis(agenda=RETORNA_AGENDA()):
-    agenda = agenda.fillna('DISPONÍVEL')
-    agenda.loc[agenda['CLIENTE'] == 'DISPONÍVEL']
+    agenda = agenda.fillna('DISPONIVEL')
+    agenda = agenda.loc[agenda['CLIENTE'] == 'DISPONIVEL']
+    agenda = agenda.loc[agenda['DATA'] >= date.today().strftime('%d/%m/%Y')]
     dias_disponiveis = list(agenda['DATA'].drop_duplicates())
     return(dias_disponiveis)
 
@@ -27,4 +28,20 @@ def agenda_dia_mais_proximo_do_solicitado(dias_disponiveis=agenda_dias_disponive
     else:
         data_mais_proxima = data
     return(data_mais_proxima)
+
+
+def INFORMA_PRODUTO(txt=str):
+    PRODUTOS = RETORNA_PRODUTOS()
+    doc = nlp(txt)
+    for nn, p in enumerate(PRODUTOS['SERVIÇO']):
+        if nn == 0:
+            anterior = doc.similarity(nlp(p))
+            vencedor = p
+        else:
+            atual = doc.similarity(nlp(p))
+            if atual > anterior:
+                vencedor = p
+    return(vencedor)
+
+#deve-se criar uma mensagme de confirmacao, um loop de confirmacao, um a um ou geral?
     

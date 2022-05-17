@@ -9,9 +9,15 @@ from CONFIG_GERAL import *
 
 contatos= []
 grupos = []
-EM_ATENDIMENTO = []
 
+EM_ATENDIMENTO = {0:[],1:[],2:[],3:[]}
+
+#0 utilizado para clientes que ainda não enviaram a opcao
 PROPRIETARIO_WPP = 'Rodrigo Jovê'
+
+def GERENCIADOR_ATENDIMENTO(contato=str):
+    
+
 
 with open ('../CONFIGS/MSG_SAUDACAO.txt','r',encoding='utf8') as f:
     MSG_SAUDACAO = f.read()
@@ -126,6 +132,7 @@ def ROTINA_ATENDIMENTO():
     sleep( 1 )
     hoje = date.today().strftime('%d/%m/%Y')
     atendendo = True
+    agiliza_cont = 0
     while atendendo == True:
         telefone = busca_tipo_contato()
         dados_estruturados = cria_dado_estruturado()
@@ -147,18 +154,25 @@ def ROTINA_ATENDIMENTO():
                             
                             else: #quando o número de tentativas for atingido, coloque o telefone em espera e muda para o próximo
                                 atendimento = False
-                                EM_ATENDIMENTO.append(telefone)
+                                EM_ATENDIMENTO[0].append(telefone)
                                 muda_de_contato()
                                 sleep(1)
 
                         else: #cliente respondeu e agora devemos entender a opção que ele busca
                             opcao = dados_estruturados['Historico']['Conversa'].iloc[-1]
                             if '1' in opcao:
+                                enviar_mensagem(texto='Qual o serviço que você deseja saber o preço?')
                                 print('funcao que busca o preco correspondente')
+                                INFORMA_PRODUTO(txt=str)
+                                #EM_ATENDIMENTO[1]
                             elif '2' in opcao:
-                                print('funcao que envia formulário para agendamento')
+                                enviar_mensagem(texto='Qual o serviço que você deseja agendar?')
+                                print('funcao agendamento')
+                                #EM_ATENDIMENTO[2]
                             elif '3' in opcao:
+                                enviar_mensagem(texto='Que pena eu não conseguir te ajudar. Farei seu encaminhamento agora.')
                                 print('encaminha para o atendimento humano')
+                                #EM_ATENDIMENTO[3]
                             else:
                                 print('Mantenha-se apenas às opções disponíveis, digite um número possível')
                                 #enviar_mensagem(MSG_SAUDACAO)
@@ -166,16 +180,27 @@ def ROTINA_ATENDIMENTO():
                             n=0 #zera a contagem do atendimento, pois respondeu e pode querer continuar
                 
                 else: #se eu dei a última mensagem, o atendimento foi encerrado ou a pessoa ainda não me respondeu
-                    muda_de_contato() 
-                    sleep(1)
-                    telefone = busca_tipo_contato()
-                    dados_estruturados = cria_dado_estruturado()
+                    agiliza_cont +=1
+                    if agiliza_cont <=10:
+                        muda_de_contato() 
+                        sleep(1)
+                        telefone = busca_tipo_contato()
+                        dados_estruturados = cria_dado_estruturado()
+                    else:
+                        inicio_contatos()
+                        telefone = busca_tipo_contato()
+                        dados_estruturados = cria_dado_estruturado()
             
             else: #se for um grupo muda para o próximo contato
                 muda_de_contato()
                 sleep(1)
-        
+            
         else: #se a última msg foi enviada ontem, ele retorna ao início
+            for c in EM_ATENDIMENTO:
+                #criar função para ir diretamente até o contato
+                pass
+            #após percorrer todos, retornará aos em atendimento para suprir a necessidade e só voltará a atender novos clientes quando os antigos estiverem ok
+            #talvez criar um contator para q a cada 10 contatos seguidos ja respondidos voltar para o início dos contatos
             inicio_contatos()
             telefone = busca_tipo_contato()
             dados_estruturados = cria_dado_estruturado()
