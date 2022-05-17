@@ -19,7 +19,7 @@ def agenda_dias_disponiveis(agenda=RETORNA_AGENDA()):
     dias_disponiveis = list(agenda['DATA'].drop_duplicates())
     return(dias_disponiveis)
 
-def agenda_dia_mais_proximo_do_solicitado(dias_disponiveis=agenda_dias_disponiveis(),data=str): #ver se assim já se subentende que dias_disponiveis que sera utilizado
+def agenda_dia_mais_proximo_do_solicitado(dias_disponiveis=agenda_dias_disponiveis(),data=str):
     if data not in dias_disponiveis:
         data = pd.to_datetime(data,dayfirst=True).strftime('%d/%m/%Y')
         dias_proximos = abs(pd.to_datetime(data, dayfirst=True)-pd.to_datetime(dias_disponiveis, dayfirst=True))
@@ -29,6 +29,10 @@ def agenda_dia_mais_proximo_do_solicitado(dias_disponiveis=agenda_dias_disponive
         data_mais_proxima = data
     return(data_mais_proxima)
 
+def agenda_horarios_dia_selecionado(agenda=RETORNA_AGENDA(),data_mais_proxima=str):
+    horarios_disponiveis = agenda.loc[agenda['DATA']== data_mais_proxima]
+    horarios_disponiveis = list(horarios_disponiveis[horarios_disponiveis['CLIENTE'] == 'DISPONIVEL']['HORA'])
+    return(horarios_disponiveis)
 
 def INFORMA_PRODUTO(txt=str):
     PRODUTOS = RETORNA_PRODUTOS()
