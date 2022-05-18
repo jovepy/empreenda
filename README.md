@@ -43,7 +43,7 @@ SCRUM do projeto: [ESCOPO DE PRODUÇÃO](https://miro.com/app/board/uXjVO60CGLc=
 
 ### DEPENDÊNCIAS
 
-    1. Bibliotecas.txt: bibliotecas necessárias de serem instaladas
+    1. Bibliotecas.txt: bibliotecas necessárias
 
 # Em progresso...
 
